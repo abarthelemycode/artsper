@@ -1,0 +1,37 @@
+<form [formGroup]="searchForm">
+  <div class="form-group">
+    <label for="search">Recherche par mots clés</label>
+    <input  class="form-control" formControlName="search" (input)="eventFilters($event)" />
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="">Catégories</label>
+        <select class="form-control" formControlName="id_category" (change)="eventFilters($event)">
+          <option *ngFor="let item of categories" [value]="item.id">{{item.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Prix</label>
+        <select class="form-control" formControlName="price" (change)="eventFilters($event)" >
+          <option *ngFor="let item of prices" [value]="item.id">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-group">
+        <label for="">Ordre</label>
+        <select class="form-control" formControlName="sort" (change)="eventFilters($event)">
+          <option *ngFor="let item of sorts" [value]="item.id">{{item.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Nombre de produits par page</label>
+        <select class="form-control" formControlName="ipp" (change)="eventFilters($event)" >
+          <option *ngFor="let item of ipps" [value]="item">{{item}} produits par page</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</form>

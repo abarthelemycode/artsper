@@ -1,0 +1,19 @@
+.pagination {
+	font-size:1.25rem;
+	min-height: 3rem;
+
+	button {
+		background: transparent;
+		cursor: pointer;
+		outline: none;
+		border: 0;
+		color:grey;
+		&.active {
+			color:black;
+		}
+
+		&.disabled {
+			color: lightgrey;
+		}
+	}
+}

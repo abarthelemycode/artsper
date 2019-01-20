@@ -1,0 +1,44 @@
+<div class="pagination justify-content-center">
+	<ng-template [ngIf]="count > 0">
+		<div class="mr-auto">
+			<button class="link "
+				(click)="onPrev()"
+				*ngIf="page !== 1"
+				[ngClass]="{ 'disabled': page === 1 || loading }">&lt; </button>
+		</div>
+
+		<div class="numbers">
+			<button
+				(click)="onPage(1)"
+				[ngClass]="{'active': page === 1, 'disabled': loading}">1</button>
+
+			<span *ngIf="page >= pagesToShow">| ... </span>
+
+			<ng-template [ngIf]="totalPages() > 1">
+				<span *ngFor="let pageNum of getPages()">
+					<ng-template [ngIf]="pageNum !== 1">
+					<ng-template [ngIf]="pageNum !== totalPages()">
+						<span> | </span>
+						<button
+							(click)="onPage(pageNum)"
+							[ngClass]="{'active': page === pageNum, 'disabled': loading}">{{ pageNum }}</button>
+					</ng-template>
+					</ng-template>
+				</span>
+			</ng-template>
+
+			<span *ngIf="page <= (totalPages() - (pagesToShow -1))">| ... </span>
+			<span *ngIf="page <= totalPages()">|</span>
+			<button
+				(click)="onPage(totalPages())"
+				[ngClass]="{'active': page === totalPages(), 'disabled': loading}">{{ totalPages() }}</button>
+		</div>
+
+		<div class="ml-auto">
+			<button class="link"
+				(click)="onNext(true)"
+				*ngIf="page !== totalPages() && !loading"
+				[ngClass]="{ 'disabled': lastPage() || loading }"> &gt;</button>
+		</div>
+	</ng-template>
+</div>

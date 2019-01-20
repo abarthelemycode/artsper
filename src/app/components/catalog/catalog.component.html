@@ -1,0 +1,20 @@
+<div class="container">
+
+  <catalog-filters (filtersChange)="filtersChange($event)"></catalog-filters>
+  <pagination
+    (goPage)="goToPage($event)"
+    (goNext)="onNext()"
+    (goPrev)="onPrev()"
+    [pagesToShow]="5"
+    [page]="page"
+    [perPage]="limit"
+    [count]="totalItems">
+  </pagination>
+
+  <div *ngIf="loading" class="loading">
+    Chargement
+  </div>
+  <div *ngIf="!loading" class="row">
+    <block-product *ngFor="let item of products" [product]="item" > </block-product>
+  </div>
+</div>

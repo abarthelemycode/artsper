@@ -1,0 +1,12 @@
+<div class="card product">
+  <img class="card-img-top" src="{{ product?.images[0]?.absolute_path }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ product?.artwork_title }}</h5>
+    <h6>
+      {{ product?.artist?.artist_lastname }} {{ product?.artist?.artist_firstname }}
+    </h6>
+    <h6>{{ product?.category?.label?.fr }}</h6>
+    <h6 class="product-dim">{{ product?.artwork_dimension_w }} x {{ product?.artwork_dimension_h }} x {{ product?.artwork_dimension_l }} cm</h6>
+    <h6 class="product-price">{{ product?.artwork_price }} €</h6>
+  </div>
+</div>
