@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CatalogService } from '../../_services';
+import { CatalogService } from '@catalog/services';
 
-import { Subscription } from "rxjs"
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'catalog',
@@ -9,9 +9,9 @@ import { Subscription } from "rxjs"
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
-  searchSubscription: Subscription = new Subscription()
-  filters = {}
-  products = []
+  searchSubscription: Subscription = new Subscription();
+  filters = {};
+  products = [];
 
   loading = false;
   totalItems = 0;
@@ -19,30 +19,30 @@ export class CatalogComponent implements OnInit {
   limit = 60;
 
 
-  constructor(private catalogService :CatalogService) {
+  constructor(private catalogService: CatalogService) {
   }
 
   ngOnInit() {
 
   }
 
-  getProducts(){
+  getProducts() {
     this.loading = true;
-    this.filters['page'] = this.page
+    this.filters['page'] = this.page;
 
-    this.searchSubscription.unsubscribe()
+    this.searchSubscription.unsubscribe();
     this.searchSubscription = this.catalogService.getProducts(this.filters)
                                        .subscribe(res => {
       this.products   = res.data;
       this.totalItems = res.meta.total_items;
       this.limit      = res.meta.limit;
       this.loading    = false;
-    })
+    });
   }
 
-  filtersChange(filters){
+  filtersChange(filters) {
     this.filters = filters;
-    this.page = 1
+    this.page = 1;
     this.getProducts();
   }
 

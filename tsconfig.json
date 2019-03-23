@@ -1,8 +1,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@env/*"      : ["environments/*"],
+      "@/*"         : ["app/*"],
+      "@core/*"     : ["app/_core/*"],
+      "@shared/*"   : ["app/_shared/*"],
+      "@login/*"    : ["app/login/*"],
+      "@catalog/*"  : ["app/catalog/*"],
+    },
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",

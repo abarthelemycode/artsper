@@ -9,16 +9,16 @@ export class AuthenticationService {
   private logged: BehaviorSubject<boolean>;
 
     constructor(private http: HttpClient) {
-      let initLogged = (this.getToken())? true : false
-      this.logged = new BehaviorSubject<boolean>(initLogged)
+      const initLogged = (this.getToken()) ? true : false;
+      this.logged = new BehaviorSubject<boolean>(initLogged);
     }
 
     public getToken() {
       return localStorage.getItem('currentToken');
     }
 
-    isLogged (){
-      return this.logged.asObservable()
+    isLogged () {
+      return this.logged.asObservable();
     }
 
     login(params: Object) {
@@ -28,15 +28,15 @@ export class AuthenticationService {
               if (res.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentToken', res.token);
-                this.logged.next(true)
+                this.logged.next(true);
               }
-              return res
+              return res;
           }));
     }
 
     logout() {
       localStorage.removeItem('currentToken');
-      this.logged.next(false)
+      this.logged.next(false);
     }
 
 

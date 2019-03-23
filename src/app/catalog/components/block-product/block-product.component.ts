@@ -7,7 +7,7 @@ import { Component, OnInit, Input  } from '@angular/core';
 })
 export class BlockProductComponent implements OnInit {
 
-  @Input('product') product:Object
+  @Input() product: Object;
 
   constructor() { }
 

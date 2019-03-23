@@ -1,7 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'pagination',
+  selector: 'shared-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
@@ -16,7 +16,7 @@ export class PaginationComponent {
   @Output() goNext = new EventEmitter<boolean>();
   @Output() goPage = new EventEmitter<number>();
 
-  
+
   constructor() { }
 
   getMin(): number {

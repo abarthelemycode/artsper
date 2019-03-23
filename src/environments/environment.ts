@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://www.artsper.com/api"
+  apiUrl: 'https://www.artsper.com/api'
 };
 
 /*

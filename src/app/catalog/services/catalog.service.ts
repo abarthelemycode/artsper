@@ -7,8 +7,8 @@ export class CatalogService {
     constructor(private http: HttpClient) {
     }
 
-    getProducts(params){
-      return this.http.get<any>(`/artworks`, { params: params })
+    getProducts(params) {
+      return this.http.get<any>(`/artworks`, { params: params });
     }
 
 }

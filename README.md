@@ -1,5 +1,11 @@
 # ArtsperTest
 
+Use this account for testing :
+
+email     : superhero@artsper-candidate.com
+password  : candidate
+Type      : admin
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
 
 ## Development server
